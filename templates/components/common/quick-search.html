@@ -1,18 +1,33 @@
 <div class="container">
-    <form class="form" onsubmit="return false" data-url="{{urls.search}}" data-quick-search-form>
+    {{{ snippet "forms_search"}}}
+    <form class="form search-form" action="{{urls.search}}">
         <fieldset class="form-fieldset">
             <div class="form-field">
-                <label class="is-srOnly" for={{name}}>{{lang "search.quick_search.input_label"}}</label>
-                <input class="form-input"
-                       data-quick-search-input
-                       name={{name}}
-                       id={{name}}
-                       data-error-message="{{lang 'search.error.empty_field'}}"
-                       placeholder="{{lang 'search.quick_search.input_placeholder'}}"
-                       autocomplete="off"
-                >
+                <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+                <input class="form-input" data-search-quick name="search_query" id="search_query2" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
+                <section class="quickSearchResults" data-bind="html: results"></section>
+                <button class="form-submit" type="submit" value="submit">
+                    <span class="icon icon--custom icon--search">
+                         <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M898.304 791.91l-193.485-193.485c29.184-47.872 45.978-104.192 45.978-164.352 0-174.95-151.603-326.502-326.554-326.502-174.95-0.051-316.723 141.773-316.723 316.723 0 174.899 151.603 326.502 326.502 326.502 58.214 0 112.64-15.821 159.488-43.213l194.509 194.611c19.046 18.995 49.92 18.995 68.915 0l48.282-48.282c18.995-18.995 12.083-43.008-6.912-62.003zM205.005 424.294c0-121.139 98.15-219.29 219.238-219.29 121.139 0 229.069 107.878 229.069 229.069 0 121.088-98.202 219.29-219.29 219.29-121.139-0.051-229.018-107.981-229.018-229.069z" id="Shape"></path>
+                        </svg>
+                    </span>                    
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+{{!--
+<div class="container">
+    <form class="form" action="{{urls.search}}">
+        <fieldset class="form-fieldset">
+            <div class="form-field">
+                <label class="is-srOnly" for="search_query">{{lang "search.quick_search.input_label"}}</label>
+                <input class="form-input" data-search-quick name="search_query" id="search_query" data-error-message="{{lang 'search.error.empty_field'}}" placeholder="{{lang 'search.quick_search.input_placeholder'}}" autocomplete="off">
             </div>
         </fieldset>
     </form>
     <section class="quickSearchResults" data-bind="html: results"></section>
 </div>
+--}}

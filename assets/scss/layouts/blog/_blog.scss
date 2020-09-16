@@ -66,8 +66,10 @@
     max-width: get_width(stencilString('blog_size'));
 
     img {
-        width: 100%;
+        @include lazy-loaded-img;
     }
+
+    @include lazy-loaded-padding('blog_size');
 }
 
 .blog-post-figure {

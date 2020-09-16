@@ -28,14 +28,14 @@ export default class Cart extends PageManager {
         const newQty = $target.data('action') === 'inc' ? oldQty + 1 : oldQty - 1;
         // Does not quality for min/max quantity
         if (newQty < minQty) {
-            return swal.fire({
+            return swal({
                 text: minError,
-                icon: 'error',
+                type: 'error',
             });
         } else if (maxQty > 0 && newQty > maxQty) {
-            return swal.fire({
+            return swal({
                 text: maxError,
-                icon: 'error',
+                type: 'error',
             });
         }
 
@@ -51,9 +51,9 @@ export default class Cart extends PageManager {
                 this.refreshContent(remove);
             } else {
                 $el.val(oldQty);
-                swal.fire({
+                swal({
                     text: response.data.errors.join('\n'),
-                    icon: 'error',
+                    type: 'error',
                 });
             }
         });
@@ -74,21 +74,21 @@ export default class Cart extends PageManager {
         if (!newQty) {
             invalidEntry = $el.val();
             $el.val(oldQty);
-            return swal.fire({
+            return swal({
                 text: `${invalidEntry} is not a valid entry`,
-                icon: 'error',
+                type: 'error',
             });
         } else if (newQty < minQty) {
             $el.val(oldQty);
-            return swal.fire({
+            return swal({
                 text: minError,
-                icon: 'error',
+                type: 'error',
             });
         } else if (maxQty > 0 && newQty > maxQty) {
             $el.val(oldQty);
-            return swal.fire({
+            return swal({
                 text: maxError,
-                icon: 'error',
+                type: 'error',
             });
         }
 
@@ -103,9 +103,9 @@ export default class Cart extends PageManager {
                 this.refreshContent(remove);
             } else {
                 $el.val(oldQty);
-                swal.fire({
+                swal({
                     text: response.data.errors.join('\n'),
-                    icon: 'error',
+                    type: 'error',
                 });
             }
         });
@@ -117,9 +117,9 @@ export default class Cart extends PageManager {
             if (response.data.status === 'succeed') {
                 this.refreshContent(true);
             } else {
-                swal.fire({
+                swal({
                     text: response.data.errors.join('\n'),
-                    icon: 'error',
+                    type: 'error',
                 });
             }
         });
@@ -150,9 +150,9 @@ export default class Cart extends PageManager {
                 const data = result.data || {};
 
                 if (err) {
-                    swal.fire({
+                    swal({
                         text: err,
-                        icon: 'error',
+                        type: 'error',
                     });
                     return false;
                 }
@@ -240,15 +240,13 @@ export default class Cart extends PageManager {
         $('.cart-remove', this.$cartContent).on('click', event => {
             const itemId = $(event.currentTarget).data('cartItemid');
             const string = $(event.currentTarget).data('confirmDelete');
-            swal.fire({
+            swal({
                 text: string,
-                icon: 'warning',
+                type: 'warning',
                 showCancelButton: true,
-            }).then((result) => {
-                if (result.value) {
-                    // remove item from cart
-                    cartRemoveItem(itemId);
-                }
+            }).then(() => {
+                // remove item from cart
+                cartRemoveItem(itemId);
             });
             event.preventDefault();
         });
@@ -291,9 +289,9 @@ export default class Cart extends PageManager {
 
             // Empty code
             if (!code) {
-                return swal.fire({
+                return swal({
                     text: $codeInput.data('error'),
-                    icon: 'error',
+                    type: 'error',
                 });
             }
 
@@ -301,9 +299,9 @@ export default class Cart extends PageManager {
                 if (response.data.status === 'success') {
                     this.refreshContent();
                 } else {
-                    swal.fire({
+                    swal({
                         text: response.data.errors.join('\n'),
-                        icon: 'error',
+                        type: 'error',
                     });
                 }
             });
@@ -335,9 +333,9 @@ export default class Cart extends PageManager {
             event.preventDefault();
 
             if (!giftCertCheck(code)) {
-                return swal.fire({
+                return swal({
                     text: $certInput.data('error'),
-                    icon: 'error',
+                    type: 'error',
                 });
             }
 
@@ -345,9 +343,9 @@ export default class Cart extends PageManager {
                 if (resp.data.status === 'success') {
                     this.refreshContent();
                 } else {
-                    swal.fire({
+                    swal({
                         text: resp.data.errors.join('\n'),
-                        icon: 'error',
+                        type: 'error',
                     });
                 }
             });

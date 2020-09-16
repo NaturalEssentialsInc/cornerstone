@@ -19,27 +19,150 @@ blog:
     {{{region name="home_below_carousel"}}}
 {{/partial}}
 
-{{#partial "page"}}
+{{#partial "full-top"}}
 
-    {{#each shipping_messages}}
-        {{> components/common/alert/alert-info message}}
-    {{/each}}
-
-<div class="main full">
-    {{#if products.featured}}
-        {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
-    {{/if}}
-    {{{region name="home_below_featured_products"}}}
-
-    {{#if products.top_sellers}}
-        {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
-    {{/if}}
-    {{{region name="home_below_top_products"}}}
-
-    {{#if products.new}}
-        {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
-    {{/if}}
-    {{{region name="home_below_new_products"}}}
-</div>
+<div class="AboutUs">
+			<div class="Inner">
+				<div class="contain">
+					<h1>Bulk Apothecary</h1><p> started in mid 2010 as a small brick and mortar specialty retailer and has quickly expanded to become one of the nation's leading suppliers of Essential Oil, Soap Making Supplies, Candle Making Supplies and Specialty Ingredients.</p>
+					<br><a href="/about-us/" class="Button">Read More</a>
+				</div>
+			</div>
+		</div>
+		<div class="Half Oils">
+			<div class="Inner">
+				<a href="/categories/aromatherapy-essential-oils.html" class="Button"><h2>Essential Oils</h2></a>
+			</div>
+		</div>
+		<div class="Half Ingredients">
+			<div class="Inner">
+				<a href="/categories/raw-ingredients.html" class="Button"><h2>Raw Ingredients</h2></a>
+			</div>
+		</div>
+		<div class="HalfColumn">
+			<div class="Block NewsletterSubscription Moveable Panel" id="SideNewsletterBox">
+            	<h2>Sign Up For Our Newsletters</h2>
+            	<div class="BlockContent">
+            		<form id="email_signup" class="klaviyo_standard_embed_aQRHVm" action="//manage.kmail-lists.com/subscriptions/subscribe" data-ajax-submit="//manage.kmail-lists.com/ajax/subscriptions/subscribe" method="GET" target="_blank" novalidate="novalidate">
+            			<input type="hidden" name="g" value="aQRHVm">
+            			<label for="k_id_email" style="display:none;">Newsletter Sign Up</label>
+            			<input class="klaviyo_email_input" type="email" value="" name="email" id="k_id_email" placeholder="Email">
+            			<button type="submit" class="klaviyo_submit_button">Sign Up</button>
+            			<div class="klaviyo_messages">
+            				<div class="success_message" style="display:none;"></div>
+            				<div class="error_message" style="display:none;"></div>
+            			</div>
+            		</form>
+            	</div>
+            </div>
+			<div class="Full Fragrance">
+				<div class="Inner">
+					<a href="/categories/fragrance-flavor.html" class="Button"><h2>Fragrance &amp; Flavor</h2></a>
+				</div>
+			</div>
+		</div>
+		<div class="HalfColumn">
+			<div class="Full Vitamins">
+				<div class="Inner">
+					<a href="/categories/supplements/vitamins/" class="Button"><h2>Vitamins</h2></a>
+				</div>
+			</div>
+			<div class="Half Bases">
+				<div class="Inner">
+					<a href="/categories/unscented-bases.html" class="Button"><h2>Bases</h2></a>
+				</div>
+			</div>
+			<div class="Half Sale">
+				<div class="Inner">
+					<a href="/categories/clearance-center/" class="Button">On Sale</a>
+				</div>
+			</div>
+		</div>
 {{/partial}}
+
+{{#partial "page"}}
+			<div class="BlogRecipes">
+				<h2 class="Title">See what we're making</h2>
+				<div class="Slider">
+					<div class="Blogs">
+						<div class="Group cycle-slide cycle-sentinel">
+							<div class="Post">
+								<div class="Image">
+									<img class="lazyload" data-src="/product_images/uploaded_images/shave-soap-recipe-1-300x223.jpg" alt="DIY shave soap">
+								</div>
+								<div class="Title">
+									<a href="/blog/other-recipes/shave-soap-recipe/">Shave Soap Recipe</a>
+								</div>
+								<div class="Meta">
+									<a href="/blog/category/other-recipes/">Other Recipes</a> | <a href="/blog/other-recipes/shave-soap-recipe/">Read More</a>
+								</div>
+							</div>
+							<div class="Post">
+								<div class="Image">
+									<img class="lazyload" data-src="/product_images/uploaded_images/sweet-and-spicy-mixed-nuts-1-300x225.jpg" alt="DIY mixed nuts">
+								</div>
+								<div class="Title">
+									<a href="/blog/other-recipes/fathers-day-gift-idea-sweet-spicy-mixed-nuts/">Father’s Day Gift Idea: Sweet &amp; Spicy Mixed Nuts</a>
+								</div>
+								<div class="Meta">
+									<a href="/blog/category/other-recipes/">Other Recipes</a> | <a href="/blog/other-recipes/fathers-day-gift-idea-sweet-spicy-mixed-nuts/">Read More</a>
+								</div>
+							</div>
+							<div class="Post">
+								<div class="Image">
+									<img class="lazyload" data-src="/product_images/uploaded_images/beard-balm-recipe-1-300x231.jpg" alt="DIY beard balm">
+								</div>
+								<div class="Title">
+									<a href="/blog/other-recipes/beard-balm-recipe/">Beard Balm Recipe</a>
+								</div>
+								<div class="Meta">
+									<a href="/blog/category/other-recipes/">Other Recipes</a> | <a href="/blog/other-recipes/beard-balm-recipe/">Read More</a>
+								</div>
+							</div>
+							<div class="Post">
+								<div class="Image">
+									<img class="lazyload" data-src="/product_images/uploaded_images/beard-oil-recipe-1-300x225.jpg" alt="DIY beard oil">
+								</div>
+								<div class="Title">
+									<a href="/blog/other-recipes/beard-oil-recipe/">Beard Oil Recipe</a>
+								</div>
+								<div class="Meta">
+									<a href="/blog/category/other-recipes/">Other Recipes</a> | <a href="/blog/other-recipes/beard-oil-recipe/">Read More</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a href="/blog/" class="Button">See More Recipes</a>
+			</div>
+{{/partial}}
+
+{{!--
+
+    {{#partial "page"}}
+    
+        {{#each shipping_messages}}
+            {{> components/common/alert-info message}}
+        {{/each}}
+    
+    <div class="main full">
+        {{#if products.featured}}
+            {{> components/products/featured products=products.featured columns=theme_settings.homepage_featured_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_featured_products"}}}
+    
+        {{#if products.top_sellers}}
+            {{> components/products/top products=products.top_sellers columns=theme_settings.homepage_top_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_top_products"}}}
+    
+        {{#if products.new}}
+            {{> components/products/new products=products.new columns=theme_settings.homepage_new_products_column_count}}
+        {{/if}}
+        {{{region name="home_below_new_products"}}}
+    </div>
+    {{/partial}}
+
+--}}
+
 {{> layout/base}}

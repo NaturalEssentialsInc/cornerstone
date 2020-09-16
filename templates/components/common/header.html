@@ -1,32 +1,126 @@
-<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
 {{#if banners.top}}
 <div class="banners" data-banner-location="top">
     {{#each (limit banners.top_metadata 1)}}
     <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-banner-id="{{this.banner-name}}">
         <div data-event-type="promotion-click">
             {{{this.content}}}
-        </div>
+        </div> 
     </div>
     {{/each}}
 </div>
 {{/if}}
 <header class="header" role="banner">
-    <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
-        <span class="mobileMenu-toggleIcon">Toggle menu</span>
-    </a>
+    
     {{> components/common/navigation}}
-
-    {{#if page_type '===' 'default'}}
-        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </h1>
-    {{else}}
-        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
+    
+    <div class="inner-header">
+        
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>
+        
+        {{#if page_type '===' 'default'}}
+            <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </h1>
+        {{else}}
+            <div class="header-logo header-logo--{{theme_settings.logo-position}}">
+                {{> components/common/store-logo}}
+            </div>
+        {{/if}}
+        
+        <a href="tel:1.888.728.7612" class="Mobile-PhoneNumber">
+            <span>1.888.728.7612</span><i class="fa fa-phone"></i>
+        </a>
+        
+        <div class="mobile-cart ShoppingCart">
+            <a href="/cart.php">
+                <div class="Icon"><span></span></div>
+            </a>
         </div>
-    {{/if}}
+        
+        
+        <div class="SocialHolding">
+            <div class="PromoMessage">
+                <div class="InnerMessage">
+                    <img src="https://www.bulkapothecary.com/product_images/uploaded_images/coupon-image.jpg" alt="coupon code">
+                    <p>15% OFF ORDERS OVER $250</p>
+                    <p>Automatically at Checkout</p>
+                </div>
+            </div>
+            <div class="HeaderSocials">
+                <ul>
+                    <li class="facebook"><a href="https://www.facebook.com/BApothecary" target="_blank">Facebook</a></li>
+                    <li class="twitter"><a href="https://twitter.com/bulkapothecary" target="_blank">Twitter</a></li>
+                    <!--<li class="google"><a href="https://plus.google.com/103555532637918550167/about" target="_blank">Google +</a></li> -->
+                    <li class="pinit"><a href="http://www.pinterest.com/BulkApothecary" target="_blank">Pin It</a></li>
+                    <li class="instagram"><a href="http://www.instagram.com/bulkapothecary" target="_blank">Instagram</a></li>
+                    <li class="tumblr"><a href="http://bulkapothecary.tumblr.com/" target="_blank">Tumblr</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="header-right">
+        
+            <div class="desktop-search">
+                {{> components/common/quick-search}} 
+            </div>
+        
+        
+            <div class="UnderSearch">
+                <div class="LoginBox">
+                    <div class="Icon"><span></span></div>
+                    <div class="Text">
+                        {{#if customer}}
+                            <span class="Row1"><a href="{{urls.account.index}}">{{lang 'common.account'}}</a></span>
+                            <span class="Row2"><a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a></span>
+                        {{else}}
+                            <span class="Row1"><a href="{{urls.auth.login}}">{{lang 'common.login'}}</a></span>
+                            {{#if settings.account_creation_enabled}}
+                                <span class="Row2"><a href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a></span>
+                            {{/if}}
+                        {{/if}}
+                    </div>
+                </div>
+                <div class="ShoppingCart">
+                    <div class="Icon"><span></span></div>
+                    <div class="Text">
+                        <span class="Row1"><a href="/cart.php">SHOPPING CART</a></span>
+                        <span class="Row2">{{!--<span class="Price">{{cart.sub_total.formatted}}</span>--}}<span class="Items">Items: <span class="cart-quantity">0</span></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
     <div class="navPages-container" id="menu" data-menu>
         {{> components/common/navigation-menu}}
     </div>
+    
+    
+{{!--
+    
+    <div class="mobile-bar">
+        
+        <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
+            <span class="mobileMenu-toggleIcon">Toggle menu</span>
+        </a>
+        
+        <div class="mobile-log">
+            {{#if customer}}
+                <span class="Row1"><a href="{{urls.account.index}}">{{lang 'common.account'}}</a></span>
+                <span class="Row2"><a href="{{urls.auth.logout}}">{{lang 'common.logout'}}</a></span>
+            {{else}}
+                <span class="Row1"><a href="{{urls.auth.login}}">{{lang 'common.login'}}</a></span>
+                {{#if settings.account_creation_enabled}}
+                    <span class="Row2"><a href="{{urls.auth.create_account}}">{{lang 'common.sign_up'}}</a></span>
+                {{/if}}
+            {{/if}}
+        </div>
+        
+    </div>
+    
+--}}
+    
 </header>
 {{{region name="header_bottom"}}}

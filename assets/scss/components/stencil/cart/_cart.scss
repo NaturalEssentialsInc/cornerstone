@@ -13,47 +13,9 @@ $cart-item-spacing:                     spacing("single");
 
 $cart-thumbnail-maxWidth:               remCalc(100px);
 $cart-thumbnail-height:                 remCalc(100px);
-$cart-thumbnail-maxHeight:              14rem;
-$cart-thumbnail-paddingVertical:        0.5rem;
 
 $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-spacing;
 
-//
-// Shared styles for additional checkout buttons
-// -----------------------------------------------------------------------------
-
-%additionalCheckoutButtons {
-    @include clearfix;
-
-    // scss-lint:disable SelectorFormat
-    .FloatRight {
-        @include clearfix;
-
-        // scss-lint:disable SelectorDepth, NestingDepth
-        p {
-            // scss-lint:disable ImportantRule
-            float: none !important;
-            margin: spacing("third") 0;
-            text-align: right;
-        }
-
-        div {
-            float: right;
-        }
-    }
-
-    .CheckoutButton {
-        margin-bottom: spacing("base");
-
-        &:first-child {
-            margin-top: spacing("single");
-        }
-
-        &:last-child {
-            margin-bottom: spacing("single");
-        }
-    }
-}
 
 // Cart layout
 // -----------------------------------------------------------------------------
@@ -137,7 +99,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 
 .cart-item-figure {
     float: left;
-    text-align: center;
+    height: $cart-thumbnail-height;
     margin-bottom: $cart-item-spacing;
     width: grid-calc(4, $total-columns);
     position: relative;
@@ -152,10 +114,9 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     @include breakpoint("medium") {
         float: none;
         width: grid-calc(1, $total-columns);
-        padding: $cart-thumbnail-paddingVertical 0;
     }
 
-    @include cart-item-lazy-load-img-placeholder;
+    @include lazy-loaded-padding('productthumb_size');
 }
 
 .cart-item-fixed-image {
@@ -163,8 +124,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .cart-item-image {
-    max-height: $cart-thumbnail-maxHeight;
-    max-width: get-width(stencilString('productthumb_size'));
+    @include lazy-loaded-img;
 
     @include breakpoint("medium") {
         margin-left:0;
@@ -212,6 +172,10 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
             text-align: right;
         }
     }
+
+    + .cart-item-info {
+        margin-top: spacing("half");
+    }
 }
 
 
@@ -241,7 +205,7 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
 }
 
 .cart-item-label {
-    color: stencilColor("color-textBase");
+    color: color("greys", "light");
     float: left;
     margin-bottom: spacing("quarter");
     text-align: right;
@@ -542,14 +506,39 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     }
 }
 
-.cart-additionalCheckoutButtons {
-    @extend %additionalCheckoutButtons;
+.cart-additionalCheckoutButtons { // 1
+    @include clearfix;
+
+    // scss-lint:disable SelectorFormat
+    .FloatRight {
+        @include clearfix;
+
+        // scss-lint:disable SelectorDepth, NestingDepth
+        p {
+            // scss-lint:disable ImportantRule
+            float: none !important;
+            margin: spacing("third") 0;
+            text-align: right;
+        }
+
+        div {
+            float: right;
+        }
+    }
+
+    .CheckoutButton {
+        margin-bottom: spacing("base");
+
+        &:first-child {
+            margin-top: spacing("single");
+        }
+
+        &:last-child {
+            margin-bottom: spacing("single");
+        }
+    }
 }
 
-.previewCart-additionalCheckoutButtons {
-    @extend %additionalCheckoutButtons;
-    padding-right: 1.5rem;
-}
 
 // Cart Preview
 // -----------------------------------------------------------------------------
@@ -589,7 +578,6 @@ $cart-item-label-offset:                $cart-thumbnail-maxWidth + $cart-item-sp
     position: relative;
 
     img {
-        max-height: 90%;
         @include lazy-loaded-img;
     }
 

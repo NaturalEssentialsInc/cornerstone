@@ -1,6 +1,6 @@
 // =============================================================================
 // STENCIL
-// =============================================================================
+// ==============================================================================
 
 
 // Tools
@@ -49,7 +49,7 @@
 // Utilities
 // -----------------------------------------------------------------------------
 
-@import "utilities/utilities";
+@import "utilities/utilities"; 
 @import "../../node_modules/@bigcommerce/citadel/dist/utilities/utilities";
 
 
@@ -83,3 +83,2442 @@
 @import "layouts/layouts"; // 1
 
 @import "vendor/jstree/style";
+
+
+
+// Global
+// -----------------------------------------------------------------------------
+
+$olive: #353526;
+$olivehover: #585841;
+$bodyfont: "Open Sans",Arial,Helvetica,sans-serif;
+
+body {
+    font-family: $bodyfont;
+    padding-top: 90px;
+    
+    @include breakpoint("medium") {
+        padding-top: 0;    
+    }
+}
+
+.body {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+
+.button, h1, h2, h3, h4, h5, h6 {
+    font-family: $bodyfont;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.productView-info-name {
+    font-family: $bodyfont;    
+}
+
+
+.container {
+    clear: both;
+}
+
+.banners {
+    background-color: #ffffff;
+    color: #000;
+    text-align: left;
+    padding: 0 1.5rem;
+    
+    a {
+        color: #000;
+    }
+}
+
+
+.mobile {
+    display: block !important;
+    
+     @include breakpoint("medium") { 
+        display: none !important;
+    }   
+}
+
+.desktop {
+    display: none !important;
+    
+     @include breakpoint("medium") { 
+        display: block !important;
+    } 
+}
+
+
+.button {
+    background-color: transparent;
+    border-color: $olive;
+    color: $olive;
+    
+    &.active, &.is-active, &:focus, &:hover {
+        color: $olivehover;
+        border-color: $olivehover;
+    }
+
+    &.button--primary {
+        background-color: $olive;
+        border-color: $olive;
+        color: #fff;
+        
+        &.active, &.is-active, &:focus, &:hover {
+            background-color: $olivehover;
+            border-color: $olivehover;
+        }
+    }
+
+    &.card-figcaption-button {
+        background: #fff;
+        color: $olive;
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: $olive;
+    
+    &:hover, &:focus {
+        color: $olivehover;
+    }
+}
+
+.card-title>a:hover {
+    color: $olivehover;
+}
+
+.page-heading, .productView-title {
+    border-bottom: 1px dashed #000;
+    margin: 0 0 1rem;
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+blockquote, blockquote p {
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.form-radio+.form-label::after {
+    background: #000;
+}
+button,
+input,
+.button,
+.Button,
+.form-input,
+.form-select,
+.form-field {
+    border-radius: 4px !important;
+}
+
+.slick-dots li button {
+    border-radius: 50% !important;
+}
+
+
+// Header
+// -----------------------------------------------------------------------------
+
+body {
+    padding-top: 0;
+}
+
+.has-activeNavPages {
+    overflow: vsible;
+}
+
+.header {
+    position: relative;
+}
+
+.navPages-container.is-open {
+    position: relative;
+    padding-top: 0;
+}
+
+
+.mobile-bar {
+    background: #343524;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    
+    @include breakpoint("medium") { 
+        display: none;
+    }
+}
+
+.mobile-cart {
+    margin: 1rem;
+    z-index: 100;
+    
+    @include breakpoint("small") {
+        margin: 2rem;
+    }
+    
+    @include breakpoint("medium") { 
+        display: none;
+    }    
+}
+
+.Mobile-PhoneNumber {
+    position: absolute;
+    top: 19px;
+    right: 4rem;
+    border-radius: 50%;
+    border: 2px solid #333;
+    text-decoration: none;
+    z-index: 100;
+    
+    @media screen and (max-width: 285px) {
+        display: none;    
+    }
+
+    @include breakpoint("small") { 
+        top: 33px;
+        right: 5.5rem;
+    } 
+    
+    @include breakpoint("medium") { 
+        display: none;
+    } 
+}
+
+.Mobile-PhoneNumber i {
+    background: #333;
+    font-size: 16px;
+    width: 22px;
+    height: 22px;
+    border-radius: 1000px;
+    margin: 2px;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+}
+
+.Mobile-PhoneNumber  span {
+    display: none;
+}
+
+.mobileMenu-toggle {
+    position: relative;
+    padding: 0;
+    margin: 1rem;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2rem;
+        
+    .mobileMenu-toggleIcon {
+        top: 1rem;
+    }
+    
+    @include breakpoint("small") {
+        margin: 2rem;
+    }
+    
+    @include breakpoint("medium") { 
+        display: none;
+    }  
+}
+
+@media screen and (max-width: 800px) {
+    
+    .header {
+        //height: 90px; 
+     
+        .inner-header {
+            //height: 91px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .header-logo {
+            margin: 0;
+            max-width: calc(100% - 9rem);   
+        }
+        
+        .header-logo>a {
+            width: 100%;
+        }
+    }
+}
+
+.PromoMessage.mobile {
+    margin-bottom: 1.5rem;
+}
+
+.mobile-log a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.header-logo-image-unknown-size {
+    max-height: 3rem;
+
+    @include breakpoint("small") { 
+        max-height: 5rem;
+    }
+    
+    @include breakpoint("medium") { 
+        max-height: none;
+    }
+}
+
+.navPages-action.activePage, .navPages-action:hover {
+    color: #000;
+}
+
+.navPages-item {
+    border-bottom: 2px solid #fff;
+    
+    @include breakpoint("medium") {
+        border-bottom: none;    
+    }
+}
+
+.navPage-subMenu-item {
+    padding-left: 1rem;
+    font-size: 1rem;
+    border-top: 1px dashed #d7c7ad;
+    
+    @include breakpoint("medium") {
+        border-top: none;
+        
+        &.ThreeColumn {
+            width: 75%;
+            
+            .navPage-childList {
+                
+                .navPage-childList-item {
+                    width: 33.33%;
+                    float: left;
+                }
+                
+            }
+        }
+        
+    }
+}
+
+.Phone {
+    color: #fff;
+    font-size: 1rem;
+    display: inline-block;
+    text-transform: uppercase;
+    display: none;
+    
+    strong {
+        font-size: 1.25rem;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    @include breakpoint("medium") { 
+        display: inline-block;
+    }
+}
+
+.navUser {
+    
+    @include breakpoint("medium") { 
+        
+        .inner-wrap {
+            max-width: 91.71429rem;
+            padding: 0 1.5rem;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    }
+    
+    @include breakpoint("large") { 
+        
+        .inner-wrap {
+            padding: 0 6rem;
+            justify-content: space-between;
+        }
+    }        
+
+}
+
+.header {
+    background: url('https://www.bulkapothecary.com/content/template/img/headerbg.jpg') top left;
+	border-bottom: none;
+	
+	.navUser-action {
+        padding: .5rem .78571rem;
+        font-weight: 400;
+        text-transform: capitalize;
+    }
+    
+    .navPages {
+         background: url('https://www.bulkapothecary.com/content/template/img/bkg-nav-dropdown.png') top left;
+    }
+	
+	@include breakpoint("medium") { 
+		
+		.inner-header {
+	        margin-left: auto;
+            margin-right: auto;
+            max-width: 91.71429rem;
+            padding: 1rem 1.5rem;
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+		    
+		    &:before, &:after {
+		        content: " ";
+		        display: table;
+		        clear: both;
+		    }    
+		}
+		
+        .navUser { 
+            background: #807864;
+            
+                ul li {
+                    margin: 0;
+                    padding: .25rem 0;
+                    
+                    &:last-child .navUser-action {
+                        border-right: none;
+                    }
+                }
+            
+            .navUser-action {
+                color: #e7ddcb;
+                border-right: 1px solid #e7ddcb;
+                padding: 0 .75rem;
+                
+                &:hover, &:focus {
+                    color: #fff;
+                }
+			}
+		}
+        
+        .navPages-container {
+            background: #353526;
+		}
+        
+        .navPages-item>.navPages-action {
+            color: #fff;
+			
+            svg {
+                fill: #fff;
+                stroke: #fff;
+			}
+		}
+		
+		.header-logo {
+            margin: 0;
+            padding: 0;
+        }
+		
+        .navPages-action.is-open {
+            background: transparent;
+    	}
+        
+        .navPages {
+            position: relative;
+            background: none;
+            
+            .navPage-subMenu-action {
+                width: 100% !important;
+            }
+        }
+        
+        .navPage-subMenu {
+            background: url('https://www.bulkapothecary.com/content/template/img/bkg-nav-dropdown.png') top left;
+    	}
+    	
+    	.navPage-subMenu-item>.navPage-subMenu-action {
+            margin-bottom: 1rem;
+            border-bottom: 1px dashed #000;
+            color: #000;
+            font-weight: 600;
+            font-size: 18px;
+            padding-bottom: 1rem;
+            text-transform: uppercase;
+        }
+        
+        .navPage-childList-action {
+            color: #000;
+            padding: 0 0 .5rem;
+        }
+	}
+	
+	@include breakpoint("large") { 
+	    
+	    .inner-header {
+	        padding: 1rem 6rem;    
+	    }
+	}
+}
+
+.SocialHolding {
+    display: block;
+    margin: 0 auto;
+    padding: 0 1rem 1rem;
+    width: 100%;
+    
+    @include breakpoint("medium") {
+        max-width: 235px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 255px;
+        padding: 0 15px;
+    }
+    
+    @include breakpoint("large") {
+        max-width: 268px;
+        padding: 0;
+        
+    }
+}
+
+.header-right {
+    width: 100%;
+    padding: 0 1rem 1rem;
+    
+    @include breakpoint("medium") {
+        width: 272px;
+        padding: 0;
+    }
+    
+    @include breakpoint("large") {
+        width: 345px; 
+    }
+}
+
+.PromoMessage {
+    border: 2px solid #333422;
+    padding: 1px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0;
+    max-width: 250px;
+    margin: 0 auto;
+    
+    @include breakpoint("medium") {
+        width: 100%;
+    }
+}
+
+.PromoMessage img {
+    max-height: 2rem;
+    height: auto !important;
+    
+    @include breakpoint("medium") {
+       max-height: 46px;       
+    }
+}
+
+.PromoMessage .InnerMessage {
+    border: 1px solid #333422;
+    background: #333422;
+    // padding: 5px 5px 3px;
+}
+
+.PromoMessage .InnerMessage p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 18px;
+    display: none!important;
+}
+
+.HeaderSocials ul {
+    list-style: none;
+    margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+
+    #Header .Mobile, #Header .MenuBar .Links, #Wrapper, .UnderHeading .Inner, #Footer .Row, #FooterBottom .Inner {
+        width: 90%;
+        max-width: 480px;
+    }
+    
+    #Footer, #FooterBottom .Inner ul li, .BlogRecipes .Group .Post:nth-child(n+2), .BlogRecipes .Slider a#next, .BlogRecipes .Slider a#prev {
+        display: none;
+    }
+}
+
+.HeaderSocials ul {
+    list-style: none;
+    margin: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.HeaderSocials ul li {
+    float: left;
+    margin: 0 1px 0 5px;
+    
+    &:first-child {
+        margin-left: 0;
+    }
+}
+
+.HeaderSocials ul li a {
+    display: block;
+    width: 42px;
+    height: 42px;
+    line-height: 0;
+    text-align: left;
+    text-indent: -9999em;
+    background: url('https://www.bulkapothecary.com/content/template/img/i-socials.png') 0 0 no-repeat;
+    display: inline-block;
+    position: relative;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.HeaderSocials ul li.facebook a { background-position: 0 0; }
+.HeaderSocials ul li.twitter a { background-position: -48px 0; }
+.HeaderSocials ul li.google a { background-position: -96px 0; }
+.HeaderSocials ul li.pinit a { background-position: -145px 0; }
+.HeaderSocials ul li.instagram a { background-position: -193px 0; }
+.HeaderSocials ul li.tumblr a { background-position: -241px 0; }
+
+.HeaderSocials ul li a:after {
+    pointer-events: none;
+    position: absolute;
+    z-index: -1;
+    content: '';
+    top: 90%;
+    left: 13%;
+    height: 10px;
+    width: 80%;
+    opacity: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0, rgba(0, 0, 0, 0) 80%);
+    transition-duration: 0.3s;
+    transition-property: transform, opacity;
+}
+
+.HeaderSocials ul li a:hover, .HeaderSocials ul li a:focus, .HeaderSocials ul li a:active {
+    transform: translateY(-5px);
+}
+
+.HeaderSocials ul li a:hover:after, .HeaderSocials ul li a:focus:after, .HeaderSocials ul li a:active:after {
+    opacity: 1;
+    transform: translateY(5px);
+}
+
+@media screen and (max-width: 1260px) {
+   .HeaderSocials ul li a {
+        width: 36px;
+        height: 36px;
+    }
+
+    .HeaderSocials ul li {
+        margin: 0 -2px 0 5px;
+    }
+
+    .HeaderSocials ul li.facebook a {
+        background-position: 0 -63px;
+    }
+
+    .HeaderSocials ul li.twitter a {
+        background-position: -39px -63px;
+    }
+
+    .HeaderSocials ul li.google a {
+        background-position: -78px -63px;
+    }
+
+    .HeaderSocials ul li.pinit a {
+        background-position: -117px -63px;
+    }
+
+    .HeaderSocials ul li.instagram a {
+        background-position: -156px -63px;
+    }
+
+    .HeaderSocials ul li.tumblr a {
+        background-position: -194px -63px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+	
+    .SocialHolding .HeaderSocials {
+        display: none;
+	}
+	
+    #FooterBottom .SocialHolding .HeaderSocials {
+        display: inline-block;
+	}
+	
+}
+
+.UnderSearch {
+    display: none;
+    
+    @include breakpoint("medium") {
+        display: block;    
+        width: 272px;
+        float: right;
+        clear: right;
+        margin: 10px 0 0;
+    }
+
+    @include breakpoint("large") {
+        width: 345px;
+    }
+}
+
+.UnderSearch * {
+    font-size: 12px !important;
+    
+    @include breakpoint("large") {
+        font-size: 14px !important;
+    }
+}
+
+.UnderSearch .LoginBox {
+    width: 40%;
+    float: left;
+}
+
+.UnderSearch .LoginBox .Icon {
+    border-radius: 1000px;
+    border: 2px solid #333;
+    float: left;
+    margin-top: 4px;
+}
+
+.UnderSearch .LoginBox .Icon span {
+    background: url(https://www.bulkapothecary.com/content/template/img/person.png) center 5px no-repeat rgba(0,0,0,.75);
+    width: 22px;
+    height: 22px;
+    border-radius: 1000px;
+    background-size: 12px;
+    margin: 2px;
+    display: block;
+    
+    @include breakpoint("large") {
+        width: 32px;
+        height: 32px; 
+        background-size: 18px;
+    }
+}
+
+.UnderSearch .LoginBox .Text {
+    padding-left: 44px;
+}
+
+.UnderSearch .LoginBox .Text span {
+    display: block;
+    padding: 2px 5px;
+    border-bottom: 1px solid #333;
+}
+
+.UnderSearch .LoginBox .Text span:last-child {
+    border-bottom: 0;
+}
+
+.UnderSearch .LoginBox .Text span a {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+}
+
+.UnderSearch .LoginBox .Text span a:hover {
+    color: #666;
+}
+
+.UnderSearch .ShoppingCart {
+    width: 58%;
+    padding-left: 2%;
+    float: left;
+}
+
+.UnderSearch .ShoppingCart .Icon, .ShoppingCart .Icon {
+    border-radius: 1000px;
+    border: 2px solid #333;
+    float: left;
+    margin-top: 4px;
+}
+
+.UnderSearch .ShoppingCart .Icon span, .ShoppingCart .Icon span {
+    background: url(https://www.bulkapothecary.com/content/template/img/bag.png) center 6px no-repeat rgba(0,0,0,.75);
+    width: 22px;
+    height: 22px;
+    border-radius: 1000px;
+    background-size: 12px;
+    margin: 2px;
+    display: block;
+    
+    @include breakpoint("large") {
+        width: 32px;
+        height: 32px; 
+        background-size: 18px;
+    }
+}
+
+.UnderSearch .ShoppingCart .Text {
+    padding-left: 44px;
+}
+
+.UnderSearch .ShoppingCart .Text>span {
+    display: block;
+    padding: 2px 5px;
+    border-bottom: 1px solid #333;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.UnderSearch .ShoppingCart .Text .Items {
+    //float: right;
+}
+
+.UnderSearch .ShoppingCart .Text span:last-child {
+    border-bottom: 0;
+}
+
+.UnderSearch .ShoppingCart .Text span a {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    color: #333;
+}
+
+.UnderSearch .ShoppingCart .Text span a:hover {
+    color: #666;
+}
+
+
+// Search form with dropdown on desktop
+// -----------------------------------------------------------------------------
+
+.desktop-search {
+
+
+        .container {
+            padding: 0;
+        }
+
+        .form {
+            position: relative;
+            margin: 0;
+        }
+        
+        .search-form {
+    
+            .form-submit {
+                position: absolute;
+                right: .2rem;
+                top: .15rem;
+                
+                .icon {
+                    width: 1.5rem;
+                    height: 1.5rem;
+                    
+                    svg {
+                        fill:#333;
+                        stroke: #333;
+                    }
+                }
+            }
+        }
+        
+        .form-field {
+            margin: 0;
+            position: relative;
+        }
+
+        .form-input {
+            padding-right: 4rem;
+            font-size: 15px;
+            height: 30px;
+            line-height: 1;
+            padding: 0 10px;
+            box-sizing: border-box;
+            outline: 0;
+            border-radius: 0;
+            border: 1px solid #888;
+        }
+        
+        .quickSearchResults {
+            position: absolute;
+            left: 0;
+            right: 0;
+            background: #fff;
+            display: none;
+            z-index: 101;
+            max-height: 30rem;  //  optional to restrict height of drop-down
+            overflow-y: auto;   //  necessary if header is fixed
+            
+            .modal-close {
+                top: -2.5rem;
+                right: .5rem;
+            }
+            
+            &:hover {
+                display: block;
+            }
+        }
+    
+        .form-input:focus + .quickSearchResults { 
+            display: block;
+        }
+}
+
+.search-form {
+    
+    .form-submit {
+        position: absolute;
+        right: .5rem;
+        top: .5rem;
+        
+        .icon {
+            width: 2rem;
+            height: 2rem;
+            
+            svg {
+                fill:#333;
+                stroke: #333;
+            }
+        }
+    }
+}
+
+.quickSearchMessage {
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+}
+
+.quickSearchResults {
+    
+    .productGrid { 
+        margin: 0;
+        
+        .product {
+            width: 100%;
+            padding: 0;
+        }
+        
+        .card {
+            padding: .5rem;
+            margin-bottom: 0;
+            border: 2px solid #fff;
+            background: #fff;
+            
+            &:hover, &:focus {
+                border: 2px solid; 
+                
+                .card-body .card-text, 
+                .card-title>a {
+                    color: #000;
+                }
+            }
+            
+            &:after {
+                 content: " ";
+                display: table;
+                clear: both;
+            }
+        }
+        
+        .card-figure {  //adjust for larger or smaller images
+            width: 3rem;
+            float: left;
+            height: 3rem !important;
+            overflow: hidden;
+        }
+        
+        .button {
+            display: none;
+        }
+        
+        .card-body {
+            padding: 0 0 0 1rem;
+            text-align: left;
+            width: calc(100% - 3rem); //match card-figure width
+            float: left;
+            background: #fff;
+        }
+        
+        .card-title {
+            line-height: 1;
+        }
+    }
+    
+    @include breakpoint("medium") {
+        box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+    }
+}
+
+// Main Menu - hover overrides
+// -----------------------------------------------------------------------------
+
+$nav-color: #fff;
+$nav-color-active: #c0ccbb;
+$nav-bg-active: transparent;
+
+
+.navPages-action-moreIcon {
+    display:none;
+}
+
+.navPages-action-mobileExpand {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    top: .5rem;
+
+    &:before,
+    &:after{
+        content: "";
+        position: absolute;
+        background-color: #353526;
+        transition: transform 0.25s ease-out;
+    }
+
+    &:before{
+        top: 10%;
+        left: 50%;
+        width: 2px;
+        height: 80%;
+        margin-left: -1px;
+    }
+
+    &:after{
+        top: 50%;
+        left: 10%;
+        width: 80%;
+        height: 2px;
+        margin-top: -1px;
+    }
+    
+    &:hover{
+        cursor: pointer;
+    }
+    
+    &.is-open {
+        &:before{ transform: rotate(90deg); }
+        &:after{ transform: rotate(180deg); }
+    }
+}
+
+.navPages-action.has-subMenu {
+    display: inline-block;
+    width: calc(100% - 2.5rem);
+}
+
+.navPages {
+    
+    @include breakpoint("medium") {
+        position: relative;
+        
+          .navPages-action.has-subMenu {
+            width: auto;
+        }
+  
+        .navPages-action-mobileExpand {
+            display: none;
+        }
+  
+        >.navPages-list>.navPages-item {
+            border-left: 1px dashed #555;
+            
+            &:first-child {
+                border-left: none;
+            }
+            
+            &>.navPages-action, &>.navPages-action.is-open {
+                color: $nav-color;
+                
+                svg {
+                    fill: $nav-color;
+                    stroke: $nav-color;
+                }
+            }
+            
+            .navPage-subMenu {
+                display: none !important;
+            }
+            
+            &:hover, &:focus {
+                
+                &>.navPages-action, &>.navPages-action.is-open {
+                    color: $nav-color-active;
+                    background: $nav-bg-active;
+
+                    svg {
+                        fill: $nav-color-active;
+                        stroke: $nav-color-active;
+                    }
+                }
+                
+                .navPage-subMenu {
+                    display: block !important;
+                    width: 100%;
+                    left: 0;
+                }    
+            }
+        }
+    }
+}
+
+// Home
+// -----------------------------------------------------------------------------
+
+
+
+.AboutUs {
+	width: 100%;
+	background-repeat:no-repeat;
+	background-position: 00;
+	background-color:transparent;
+	background-image: url('https://www.bulkapothecary.com/content/template/img/aboutus.jpg');
+	background-size: cover;
+}
+
+.AboutUs .Inner {
+	padding: 25px 40px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
+	background: rgba(0,0,0,.25);
+	text-shadow: 1px 1px 2px #000;
+}
+
+.Half {
+	width: 50%;
+	float: left;
+	height: 522px;
+}
+
+.Half .Inner {
+	padding: 0px 40px;
+	text-align: center;
+	height: 522px;
+	background: rgba(0,0,0,0);
+	text-shadow: 1px 1px 2px #000;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.Half .Inner:hover {
+	background: rgba(0,0,0,.25);
+}
+
+.Half.Oils {
+	background: url('https://www.bulkapothecary.com/content/template/img/oils.jpg') no-repeat center;
+	background-size: cover;
+}
+
+.Half.Ingredients {
+	background: url('https://www.bulkapothecary.com/content/template/img/ingredients.jpg') no-repeat center;
+	background-size: cover;
+}
+
+.Half.Bases {
+	background: url('https://www.bulkapothecary.com/content/template/img/bases.jpg') no-repeat center;
+	background-size: cover;
+	height: 394px;
+}
+
+.Half.Sale {
+	background: url('https://www.bulkapothecary.com/content/template/img/onsale.jpg') no-repeat center;
+	background-size: cover;
+	height: 394px;
+	overflow: hidden;
+}
+
+.Half.Bases .Inner, .Half.Sale .Inner {
+	height: 394px;
+}
+
+.Half.Sale .Button {
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transform: none;
+	border: none;
+	padding: 0px;
+}
+
+.AboutUs .contain { padding: 0px 10%; }
+
+.AboutUs h1, .AboutUs p {
+	display: inline;
+	color: #fff;
+	font-size: 27px;
+	line-height: 1.6;
+	font-weight: normal;
+	margin: 0px 0px 10px;
+}
+
+.AboutUs h1 { text-transform: uppercase; }
+
+.AboutUs a.Button, .Half a.Button, .Full a.Button{
+	display: inline-block;
+	border: 2px solid #000;
+	background: 0;
+	padding: 0;
+	height: auto;
+	font-size: 24px;
+	color: #fff;
+	text-transform: uppercase;
+	height: 58px;
+	line-height: 58px;
+	letter-spacing: 2px;
+	font-weight: bold;
+	text-decoration: none;
+	padding: 0px 42px;
+	background: rgba(0,0,0,.5);
+	margin: 0px;
+	text-shadow: none;
+	transition: all .2s ease-out;
+	white-space: nowrap;
+}
+
+.Half a.Button, .Full a.Button {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}
+
+.AboutUs a.Button:hover, .Half a.Button:hover, .Full a.Button:hover {
+	color: #000;
+	background: rgba(255,255,255,.8);
+}
+
+.Oils h2, .Ingredients h2, .Fragrance h2, .Vitamins h2, .Bases h2 {
+	color: #ffffff;
+	font-size: 24px;
+	margin: 0;
+	transition: all .2s ease-out;
+}
+
+.Oils a.Button:hover h2,
+.Ingredients a.Button:hover h2,
+.Fragrance a.Button:hover h2,
+.Vitamins a.Button:hover h2,
+.Bases a.Button:hover h2 { color: #000; transition: all .2s ease-out; }
+
+.AboutUs a.Button { margin-top: 10px; }
+
+.HalfColumn {
+	float: left;
+	width: 50%;
+}
+
+.Full {
+	width: 100%;
+	float: left;
+	height: 535px;
+}
+
+.Full .Inner {
+	padding: 0px 40px;
+	text-align: center;
+	height: 535px;
+	background: rgba(0,0,0,0);
+	text-shadow: 1px 1px 2px #000;
+	position: relative;
+}
+
+.Full .Inner:hover {
+	background: rgba(0,0,0,.25);
+}
+
+.Full.Fragrance {
+	background: url('https://www.bulkapothecary.com/content/template/img/fragrance.jpg') no-repeat center;
+	background-size: cover;
+}
+
+.Full.Vitamins {
+	background: url('https://www.bulkapothecary.com/content/template/img/vitamins.jpg') no-repeat center;
+	background-size: cover;
+}
+
+
+.BlogRecipes {
+	text-align: center;
+}
+
+.BlogRecipes h2.Title {
+	font-family: 'Muncie',Arial,Helvetica,sans-serif;
+	font-weight: normal;
+	font-size: 72px;
+	text-transform: uppercase;
+	color: #000;
+	letter-spacing: 8px;
+	text-align: center;
+	margin: 0;
+	padding: 35px 0 35px;
+}
+
+.BlogRecipes .Slider {
+	display: inline-block;
+	width: 100%;
+}
+
+.BlogRecipes .Slider .Blogs {
+	padding: 0px;
+}
+
+.BlogRecipes .Slider .Blogs .Group {
+	width: 100%;
+}
+
+.BlogRecipes .Slider .Blogs .Post {
+	float: left;
+	width: 25%;
+	text-align: center;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+.BlogRecipes .Slider .Blogs .Post:hover {
+	box-shadow: 0px 0px 10px rgba(0,0,0,.20);
+	background: #ecf0ea;
+}
+
+.BlogRecipes .Slider .Blogs .Post .Image {
+	width: 207px;
+	height: 155px;
+	background: #EEE;
+	border: 1px solid #CCC;
+	margin: 0 auto;
+}
+
+.BlogRecipes .Slider .Blogs .Post .Image img {
+	width: 207px;
+	height: 155px;
+}
+
+.BlogRecipes .Slider .Blogs .Post .Title {
+	padding: 5px 0px;
+}
+
+.BlogRecipes .Slider .Blogs .Post .Title a {
+	width: 100%;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: block;
+	color: #333;
+	text-decoration: none;
+	font-size: 16px;
+	overflow: hidden;
+	box-sizing: border-box;
+	padding: 0px 10px;
+}
+
+.BlogRecipes .Slider .Blogs .Post .Meta {
+	font-size: 12px;
+	text-decoration: none;
+	color: #999;
+	padding-top: 5px;
+}
+
+.BlogRecipes .Slider .Blogs .Post .Meta a {
+	text-decoration: none;
+	color: #999;
+	text-transform: capitalize;
+}
+
+.BlogRecipes .Slider {
+	position: relative;
+	padding: 0px 53px;
+	box-sizing: border-box;
+}
+
+.BlogRecipes .Slider a#prev, .BlogRecipes .Slider a#next {
+	border: 2px solid #000;
+	width: 44px;
+	height: 44px;
+	position: absolute;
+	text-align: center;
+	line-height: 44px;
+	display: block;
+	top: 50%;
+	left: 0px;
+	text-decoration: none;
+	letter-spacing: 3px;
+	margin-top: -24px;
+	color: #000;
+}
+
+.BlogRecipes .Slider a#next {
+	left: auto;
+	right: 0px;
+	letter-spacing: -3px;
+}
+
+.BlogRecipes .Slider a#prev i, .BlogRecipes .Slider a#next i {
+	font-size: 24px;
+	line-height: 46px;
+	display: block;
+}
+
+.BlogRecipes .Slider a#prev:hover, .BlogRecipes .Slider a#next:hover {
+	color: #000;
+	cursor: pointer;
+}
+
+.BlogRecipes .Button {
+	background: #353526;
+	font-size: 24px;
+	color: #fff;
+	display: inline-block;
+	text-transform: uppercase;
+	height: 58px;
+	line-height: 58px;
+	padding: 0px 42px;
+	text-decoration: none;
+	margin-top: 20px;
+	border: 2px solid #353526;
+	letter-spacing: 2px;
+	font-weight: bold;
+}
+
+.BlogRecipes .Button:hover {
+	background: rgba(53, 53, 38, .5);
+}
+
+
+@media screen and (max-width: 1260px) {
+	
+	.Half {
+		height: 278px;
+	}
+	
+	.Half .Inner {
+		height: 278px;
+	}
+	
+	.Full, .Full .Inner {
+		height: 285px;
+	}
+	
+	.Half.Bases, .Half.Sale, .Half.Bases .Inner, .Half.Sale .Inner {
+		height: 218px;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post .Image {
+		width: 137px;
+		height: 103px;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post .Image img {
+		width: 137px;
+		height: 103px;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post .Meta {
+		font-size: 10px;
+		margin: 0px -10px;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	
+	.AboutUs {
+		background-attachment: scroll;
+		background-size: cover;
+		background-position: center;
+	}
+	
+	.AboutUs .Inner {
+		background: rgba(0,0,0,.5);
+		padding: 20px 15px;
+		display: block;
+	}
+	
+	.AboutUs h1, .AboutUs p  {
+		font-size: 16px;
+	}
+	
+	.Half {
+		float: none;
+		width: 100%;
+		height: 300px;
+	}
+	
+	.HalfColumn {
+		float: none;
+		width: 100%;
+		clear: both;
+	}
+	
+	.HalfColumn .Full {
+		float: none;
+		width: 100%;
+		clear: both;
+		height: 300px;
+	}
+	
+	.Half .Inner, .Full .Inner, .Half.Bases, .Half.Sale, .Half.Bases .Inner, .Half.Sale .Inner {
+		height: 300px;
+	}
+	
+	.BlogRecipes .Slider {
+		
+	}
+	
+	.BlogRecipes .Slider a#prev, .BlogRecipes .Slider a#next {
+		display: none;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post {
+		width: 100%;
+		float: none;
+	}
+	
+	.BlogRecipes h2.Title {
+		font-size: 36px;
+	}
+	
+	.BlogRecipes .Slider {
+		padding: 0px 0px;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post .Image {
+		width: 100%;
+		height: auto;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post .Image img {
+		width: 100%;
+		height: auto;
+	}
+	
+	.BlogRecipes .Group .Post:nth-child(n+2) {
+		display: none;
+	}
+	
+	.BlogRecipes .Slider .Blogs .Post .Meta {
+		font-size: 12px;
+	}
+	
+	.BlogRecipes .Button {
+		font-size: 16px;
+		line-height: 48px;
+		height: 48px;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.Bases h2, .Fragrance h2, .Ingredients h2, .Oils h2, .Vitamins h2, .AboutUs a.Button, .Full a.Button, .Half a.Button, .BlogRecipes .Button {
+	    font-size: 16px;
+	    padding: 1rem;
+	    height: auto;
+	    line-height: 1;
+	    max-width: 100%;
+        white-space: normal;
+    }
+}
+
+// Newsletter Subscription Form
+// ----------------------------------------------------------------------------
+
+
+.NewsletterSubscription {
+    clear: both;
+}
+
+.NewsletterSubscription label {
+    clear: both;
+    float: left;
+}
+
+.NewsletterSubscription input {
+    width: 129px;
+    font-size: 0.9em;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+.NewsletterSubscription .Button {
+    width: 95px;
+    height: 25px;
+    border: 0;
+    margin-top: 6px;
+    vertical-align: middle;
+}
+
+#SideNewsletterBox {
+    text-align: center;
+    margin: 0px;
+    padding: 145px 0px 146px;
+}
+
+#SideNewsletterBox h2 {
+    font-family: 'Muncie';
+    color: #000;
+    font-size: 49px;
+    font-weight: normal;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    padding: 2px 0 14px;
+    margin: 0px 0px 4px;
+    line-height: 1;
+}
+
+#SideNewsletterBox input[type="text"] {
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    color: #000;
+    padding: 6px 12px;
+    font: 14px 'OpenSans',Arial,Helvetica,sans-serif;
+    vertical-align: middle;
+    width: 294px;
+    margin: 0px;
+    margin-right: 4px;
+    height: 34px;
+}
+
+#SideNewsletterBox input.Button {
+    font-size: 17px;
+    color: #fff;
+    background: #353526;
+    height: 33px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Open Sans';
+}
+
+@media screen and (max-width: 1260px) {
+    #SideNewsletterBox {
+        padding: 61px 0;
+        height: 218px;
+    }
+    #SideNewsletterBox h2 {
+        font-size: 36px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    #SideNewsletterBox {
+        height: auto!important;
+    }
+}
+
+/* klaviyo newsletter */
+.klaviyo_submit_button {font-size: 17px;color: #fff;background: #353526;height: 33px;width: 95px;font-weight: 700;padding: 0;margin: 0;border: 0;text-transform: uppercase;font-family: 'Open Sans';border-radius: 0;-webkit-appearance: none;vertical-align: middle;}
+.NewsletterSubscription .klaviyo_email_input {border: 1px solid #e5e5e5;color: #000;padding: 6px 12px;font-size: 14px;font-family: OpenSans,Arial,Helvetica,sans-serif;vertical-align: middle;width: 294px;margin: 0 4px 0 0;height: 34px;}
+.klaviyo_messages .error_message { margin: 5px auto; color: red; font-size: 14px; }
+.klaviyo_messages .success_message { margin: 5px auto; font-size: 14px; }
+.klaviyo_messages .success_message .klaviyo_header { margin-bottom: 6px; font-weight: bold; color: #353526; }
+.klaviyo_flyout .klaviyo_inner {bottom:40px!important;}
+@media screen and (max-width: 1260px) {
+    .NewsletterSubscription .klaviyo_email_input {width: 200px; max-width: 100%;}
+}
+
+@media (max-width: 641px) {
+    #invite-friends {display: none;}
+}
+
+@media (max-width: 280px) {
+#SideNewsletterBox h2 {
+    font-size: 24px;
+}
+}
+// Carousels
+// -----------------------------------------------------------------------------
+
+.heroCarousel {
+    margin-bottom: 0;
+}
+
+.heroCarousel-image-wrapper {
+    height: auto !important;
+}
+
+
+// Layouts
+// -----------------------------------------------------------------------------
+
+
+
+// Subcategory Images
+// -----------------------------------------------------------------------------
+
+.subcategories {
+    
+    .navList {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .navList-item {
+        border: 2px solid #eee;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 1rem;
+        padding: .5rem;
+        box-sizing: border-box;
+
+        .navList-action {
+            display: flex;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            transition: none;
+        }
+        
+        &:hover, &:focus {
+            border: 2px solid #333;
+            
+            .navList-action {
+                color: #333;    
+            }
+        }
+
+        .subCat-img {
+            height: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            img {
+                max-width: 100%;
+                max-height: 100%;
+                object-fit: contain;
+            }
+        }
+            
+            .subCat-name {
+                margin: .75rem 0;
+                line-height: 1;
+                font-size: 1.25rem;
+                width: 100%;
+            }
+            
+         @include breakpoint("small") {   
+            width: calc(50% - 2rem);
+        }
+         @include breakpoint("medium") {   
+            width: calc(33.33% - 2rem);
+        }
+         @include breakpoint("large") {   
+            width: calc(25% - 2rem);
+        }
+    }
+}
+
+// tabs
+// -----------------------------------------------------------------------------
+
+$tabactive: #000;
+
+.tabs {
+    
+    @include breakpoint ('medium') {
+        border-bottom: 2px solid $tabactive;
+    }
+}
+
+.tab {
+    border: none !important;
+    
+    @include breakpoint("medium") {
+        margin-right: .5rem;        
+    }
+}
+
+.tab-title {
+    background: #e8e8e8; 
+    color: #000;
+    text-align: center;
+    border-bottom: 2px solid #ffffff;
+    text-transform: uppercase;
+    
+    &:hover, &:focus {
+        background: #444444;
+        color: #fff;
+    }
+    
+    @include breakpoint("medium") {    
+        border-radius: 4px 4px 0 0;
+        border-bottom: none;
+    }
+}
+
+.tab.is-active {
+    
+    .tab-title {
+        background: $tabactive;
+        color: #fff;
+        font-weight: 400;
+    
+        &:hover, &:focus {
+            background: $tabactive;
+            color: #fff;
+        }
+    }
+}
+
+
+
+// Category
+// -----------------------------------------------------------------------------
+
+.pagetype-category,
+.pagetype-brand{
+    
+    .page-heading {
+        
+        @include breakpoint("medium") {
+            text-align: left;
+        }
+    }
+    
+    .actionBar {
+        
+        @include breakpoint("medium") { 
+            position: absolute;
+            margin: 0;
+            top: 3rem;
+            right: 1.5rem;
+        }
+        
+        @include breakpoint("large") { 
+            right: 6rem;
+        }
+    }
+}
+
+.pagetype-search {
+    .page-heading {
+        
+        @include breakpoint("medium") {
+            text-align: left;
+        }
+    }
+    
+    .actionBar {
+        
+        @include breakpoint("medium") { 
+            position: absolute;
+            margin: 0;
+            top: 0;
+            right: 1.5rem;
+        }
+        
+        @include breakpoint("large") { 
+            right: 6rem;
+        }
+    }
+}
+
+
+// Cards
+// -----------------------------------------------------------------------------
+
+.productGrid {
+    
+    .product {
+        margin-bottom: .5rem;
+        border-radius: 4px;
+        
+        &:hover {
+            box-shadow: 0 2px 4px rgba(0,0,0,.35);   
+        }
+    }
+}
+
+.card-title {
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.2;
+}
+
+.card-body {
+    text-align: center;
+    
+    .card-text {
+        color: #353526;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+}
+
+.sale-flag-sash {
+    background: #9aad91;
+}
+
+
+// Product
+// -----------------------------------------------------------------------------
+
+.starting-at {
+    font-size: .9rem;
+    display: block;
+    line-height: 1;
+}
+
+.price-section {
+    display: inline-block;
+}
+
+.productView {
+     padding-top: 0;
+}
+
+.productView-price {
+    color: #800000;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.productView-product {
+    border-bottom: none;
+    padding-bottom: 0;
+    
+    .productView-price {
+        text-align: center;
+        font-size: 20px;
+        
+        @include breakpoint("medium") {
+            text-align: left;
+            font-size: 28px;
+        }
+    }
+}
+
+.productView-rating {
+    margin-bottom: 1rem !important;
+    display: block;
+    text-align: center;
+    
+    @include breakpoint("medium") {
+        text-align: left;
+    }
+}
+
+.productView-details {
+    margin-bottom: 0rem;
+}
+
+.productView-options {
+    margin-bottom: 0;
+}
+
+.productView-info {
+    margin: 0 0 .25rem;
+}
+
+.productView-options {
+    
+    .form-field {
+        border: 1px solid #333;
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .form-field>.form-checkbox+.form-label, .form-field>.form-radio+.form-label {
+        display: block;
+        margin-left: 0;
+        width: 100%;
+        text-align: left;
+    }
+    .form-label:hover {
+        color: #000;
+        font-weight: 700;
+    }
+
+    .form-checkbox:checked+.form-label, .form-radio:checked+.form-label {
+        font-weight: 700;
+        color: #000;
+    }
+
+    .form-label.form-label--alternate {
+        background: #807864;
+        margin: -1rem -1rem 1rem;
+        padding: .5rem 1rem;
+        color: #fff;
+        font-size: 1.2rem;
+    }
+    
+    .form-label--inlineSmall small {
+        color: #dfcfb6;
+        font-size: 1rem;
+        vertical-align: middle;
+    }
+    
+    .form-action {
+        display: block;
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    .form-action .button {
+        width: 100% !important;
+        margin-bottom: 0;
+        
+        &.button--primary {
+            font-size: 1.5rem;
+            padding: 1.5rem;
+            background: #9aad91;
+            text-shadow: 1px 1px 2px #37552C;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.productView-info dt {
+    margin: 0 !important;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.productView-info dd {
+    display: inline;
+    margin-left: .5rem;
+    margin-bottom: 0;
+}
+
+.productView-info dd:after {
+    content: " ";
+    display: table;
+    clear: both;
+    float: none;
+    height: .5rem;
+}
+
+
+@include breakpoint("large") {
+    
+    .productView-description {
+        clear: both;
+        float: none;
+        width: 100%;
+    }
+}
+
+.easyzoom-flyout {
+    display: none !important;
+}
+
+
+// Cart
+// -----------------------------------------------------------------------------
+
+.previewCart {
+    
+    .productView-title {
+        margin-top: 0;
+        font-size: 1.5rem;
+        text-align: left;
+        line-height: 1.2;
+    }
+
+    @include breakpoint("medium") {
+        
+        .productView-image {
+            width: 40%;
+        }
+        
+        .productView-details {
+            width: 60%;
+        }
+    }
+}
+
+
+// Search
+// -----------------------------------------------------------------------------
+
+.navBar--sub {
+    margin-bottom: 1rem;
+}
+
+.actionBar {
+    margin: 0;
+}
+
+.category-suggestion {
+    float: unset;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+
+// Footer
+// -----------------------------------------------------------------------------
+
+
+#Footer {
+    display: none;
+}
+
+@include breakpoint("medium") {
+     
+    #Footer {
+    	clear: both;
+    	font-size: 0.85em;
+    	text-align: center;
+    	margin: 30px 0 1px 0;
+    	padding: 0px 0 0 0;
+    	border-top: 3px solid #000;
+    	border-bottom: 3px solid #000;
+    	display: block;
+    }
+    
+    .Socials {
+        background: #FFF;
+        margin-top: -40px;
+        margin-bottom: 20px;
+        display:inline-block;
+    }
+    
+    .Socials .Start {
+        display: inline-block;
+        width: 75px;
+        height: 81px;
+        background: url('https://www.bulkapothecary.com/content/template/img//bkg-socials.png') no-repeat top left;
+    }
+    
+    .Socials .Middle {
+        display: inline-block;
+        height: 81px;
+        background: url('https://www.bulkapothecary.com/content/template/img/bkg-socials.png') repeat-x bottom left;
+        padding: 0px 10px;
+    }
+    
+    .Socials .Middle a {
+        width: 42px;
+        height: 42px;
+        display: block;
+        float: left;
+        margin: 19px 10px;
+        background: #FFF;
+        border-radius: 1000px;
+        color: #010101;
+    }
+    
+    .Socials .End {
+        display: inline-block;
+        width: 75px;
+        height: 81px;
+        background: url('https://www.bulkapothecary.com/content/template/img/bkg-socials.png') no-repeat top right;
+    }
+    
+    .Socials .Middle a i {
+        font-size: 24px;
+        line-height: 42px;
+    }
+    
+    .Socials .Middle a.GooglePlus i {
+        letter-spacing: -3px;
+    }
+    
+    .Row .Cards > div {
+        width: 51px;
+        height: 32px;
+        display: inline-block;
+        background: url('https://www.bulkapothecary.com/content/template/img/payment-icons.png') no-repeat top left;
+        margin: 0px 4px;
+    }
+    
+    .Row .Cards > div.Amex { background-position: -69px 0px; }
+    .Row .Cards > div.Disc { background-position: -143px 0px; }
+    .Row .Cards > div.Mc { background-position: -215px 0px; }
+    .Row .Cards > div.Paypal { background-position: -288px 0px; }
+    
+}
+
+#FooterBottom {
+	background: #363627 url('https://www.bulkapothecary.com/content/template/img/bkg-footer.png') center bottom repeat-y;
+	border-top: 1px solid #424235;
+	padding: 45px 0px 0px;
+	text-align: center;
+}
+
+#FooterBottom .Inner {
+	width: 100%;
+	max-width: 1020px;
+	display: inline-block;
+	text-align: left;
+}
+
+#FooterBottom .Inner ul {
+	float: left;
+	width: 22%;
+	margin: 0px 0px 35px;
+	padding: 0px;
+	list-style: none;
+}
+
+#FooterBottom .Inner ul:last-child {
+	width: 33%;
+}
+
+#FooterBottom .Inner ul li.Title {
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #fff;
+	margin: 0 0 35px;
+	font-weight: bold;
+}
+
+#FooterBottom .Inner ul li {
+	margin-bottom: 10px;
+}
+
+#FooterBottom .Inner ul li a {
+	font-size: 15px;
+	text-decoration: none;
+	color: #FFF;
+}
+
+#FooterBottom .Copyright {
+	font-size: 15px;
+	color: #fff;
+	border-top: 1px dashed rgba(216, 196, 165, .5);
+}
+
+#FooterBottom .Copyright a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+#FooterBottom .Inner ul li a:hover {
+	color: #d8c4a5;
+	text-decoration: underline;
+}
+
+#Footer li a {
+	border-left: 1px solid #208db5;
+}
+
+#FooterBottom .SocialHolding {
+	display: none;
+}
+
+@media screen and (max-width: 1260px) {
+	
+	#FooterBottom .Inner {
+	    padding: 0 2rem;
+    }
+    
+	#FooterBottom .Inner ul li a {
+		font-size: 13px;
+		margin-bottom: 5px;
+	}
+	
+	#FooterBottom .Inner ul li.Title {
+		font-size: 14px;
+		margin-bottom: 15px;
+	}
+	
+	#FooterBottom .Copyright {
+		padding: 20px 0px;
+	}
+}
+
+
+@media screen and (max-width: 800px) {
+	
+	
+	#FooterBottom {
+		padding-top: 10px;
+	}
+	
+	#FooterBottom .Inner ul, #FooterBottom .Inner ul:last-child {
+		width: 100%;
+		clear: both;
+		float: none;
+		text-align: center;
+		margin: 0px;
+	}
+	
+	#FooterBottom .Inner ul li {
+		display: none;
+	}
+	
+	#FooterBottom .Inner ul li.Title {
+		display: block;
+		font-size: 18px;
+		cursor: pointer;
+	}
+	
+	#FooterBottom .SocialHolding {
+		display: block;
+		padding: 5px 0px 15px;
+	}
+	
+	#FooterBottom .SocialHolding .HeaderSocials {
+		display: inline-block;
+	}
+}
+
+.Row {
+    display: inline-block;
+    width: 100%;
+    max-width: 1020px;
+    clear: both;
+    margin: 20px 0px 50px;
+}
+
+.Row .Cell {
+    width: 30%;
+    float: left;
+}
+
+.Row .Cell:nth-child(2) {
+    margin: 0px 5%;
+}
+
+.Row .Cell h3 {
+    font-size: 24px;
+    color: #000;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.Row .Cell h4 {
+    font-size: 20px;
+    padding: 5px 0 15px 0;
+    margin: 0 20px 17px;
+    background: url('https://www.bulkapothecary.com/content/template/img/title_background.png') bottom center no-repeat;
+    text-align: center;
+}
+
+.Row .Cell .Button {
+    background: #c0ccbb;
+    font-size: 22px;
+    color: #fff;
+    display: inline-block;
+    text-transform: uppercase;
+    height: 42px;
+    line-height: 42px;
+    text-decoration: none;
+    border: 2px solid #c0ccbb;
+    letter-spacing: 2px;
+    font-weight: bold;
+    width: 100%;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.Row .Cell .Button:hover {
+    background: rgba(192, 204, 187, .5);
+}
+
+
+@media screen and (max-width: 1260px) {
+    
+    .Row .Cell h3 {
+        font-size: 20px;
+    }
+
+    .Row .Cards > div {
+        margin: 0px 4px 4px;
+    }
+
+    .Row .Cell .Button {
+        font-size: 16px;
+    } 
+}
+
+
+
+#scroll {
+    position:fixed;
+    right:10px;
+    bottom:10px;
+    cursor:pointer;
+    width:50px;
+    height:50px;
+    background-color:#C0A479;
+    text-indent:-9999px;
+    display:none;
+    border-radius:60px;
+    z-index: 200;
+}
+#scroll span {
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-left:-8px;
+    margin-top:-12px;
+    height:0;
+    width:0;
+    border:8px solid transparent;
+    border-bottom-color:#ffffff;
+    font-size: 0;
+}
+#scroll:hover {
+    background-color:#7b7b3e;
+    opacity:1;
+}
+
+.redhead {
+    position: absolute;
+    left: 1rem;
+    bottom: 1.5rem;
+    
+    .icon svg {
+        fill: #4c4c32;
+    }
+    
+    @include breakpoint("large") {
+        left: 2rem;
+        bottom: 2rem;    
+    }
+}
+
+@media screen and (max-width: 480px) {
+	#FooterBottom .Copyright {
+		padding-bottom: 5rem;
+	}    
+}

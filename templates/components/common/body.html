@@ -1,8 +1,10 @@
-<div class="body" id='main-content' data-currency-code="{{currency_selector.active_currency_code}}">
+<div class="body pagetype-{{page_type}}" data-currency-code="{{currency_selector.active_currency_code}}">
     {{#block "hero"}} {{/block}}
+    {{#block "full-top"}} {{/block}}
     <div class="container">
         {{#block "page"}} {{/block}}
     </div>
-    {{> components/common/modal/modal}}
-    {{> components/common/alert/alert-modal}}
+    {{#block "full-bottom"}} {{/block}}
+    {{> components/common/modal}}
+    {{> components/common/alert-modal}}
 </div>

@@ -16,14 +16,6 @@ export default function (secureBaseUrl, cartId) {
     const $body = $('body');
 
     $body.on('cart-quantity-update', (event, quantity) => {
-        $cart.attr('aria-label', (_, prevValue) => prevValue.replace(/\d+/, quantity));
-
-        if (!quantity) {
-            $cart.addClass('navUser-item--cart__hidden-s');
-        } else {
-            $cart.removeClass('navUser-item--cart__hidden-s');
-        }
-
         $('.cart-quantity')
             .text(quantity)
             .toggleClass('countPill--positive', quantity > 0);
@@ -75,14 +67,9 @@ export default function (secureBaseUrl, cartId) {
 
         // Get updated cart quantity from the Cart API
         const cartQtyPromise = new Promise((resolve, reject) => {
-            utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl, cartId }, (err, qty) => {
+            utils.api.cart.getCartQuantity({ baseUrl: secureBaseUrl }, (err, qty) => {
                 if (err) {
-                    // If this appears to be a 404 for the cart ID, set cart quantity to 0
-                    if (err === 'Not Found') {
-                        resolve(0);
-                    } else {
-                        reject(err);
-                    }
+                    reject(err);
                 }
                 resolve(qty);
             });

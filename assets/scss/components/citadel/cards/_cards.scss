@@ -11,19 +11,6 @@
 //
 // -----------------------------------------------------------------------------
 
-.card {
-    &:focus-within {
-        .card-figcaption {
-            opacity: 1;
-        }
-    }
-
-    &.focus-within {
-        .card-figcaption {
-            opacity: 1;
-        }
-    }    
-}
 
 .card-figure {
     margin-top: $card-figure-marginTop;
@@ -62,11 +49,8 @@
 .card-image {
     @include lazy-loaded-img;
     border: 0;
-    width: 100%;
+    width: auto;
     max-height: 100%;
-    object-fit: contain;
-    /* Object-fit polyfill */
-    font-family: 'object-fit: contain;';
 }
 
 .card-title {

@@ -11,14 +11,6 @@
     margin-left: -(spacing("base"));
     margin-right: -(spacing("base"));
 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    @include breakpoint("medium") {
-        display: block;
-    }
-
     .modal & {
         padding-bottom: 0;
         padding-top: 0;
@@ -51,22 +43,18 @@
         float: right;
         width: grid-calc(6, $total-columns);
     }
-
-    .productView--quickView & {
-        position: relative;
-    }
-
-    &.product-data {
-        order: -1;
-    }
 }
 
 .productView-description {
     @include grid-column(12);
     padding-left: spacing("base");
     padding-right: spacing("base");
-    position: relative;
-    z-index: 1;
+
+    @include breakpoint("large") {
+        clear: right;
+        float: right;
+        width: grid-calc(6, $total-columns);
+    }
 
     .productView-title {
         border-bottom: container("border");

@@ -1,3 +1,7 @@
+.lazyload, .lazyloading {
+    height:100%;
+}
+
 @mixin lazy-loaded-img() {
     position: absolute;
     top: 0;
@@ -14,17 +18,5 @@
         height: 0;
         width: 100%;
         padding-bottom: get-padding(stencilString($size-param));
-    }
-}
-
-@mixin cart-item-lazy-load-img-placeholder() {
-    &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
     }
 }

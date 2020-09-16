@@ -18,21 +18,120 @@
     {{/if}}
 
 {{/if}}
+
+
+<br class="Clear" />
+
+<div id="Footer">
+    <div class="Socials">
+        <div class="Start"></div><div class="Middle">
+            <a href="https://www.facebook.com/BApothecary" class="Facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/bulkapothecary" class="Twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.pinterest.com/bulkapothecary/" class="Pinterest"><i class="fa fa-pinterest-p"></i></a>
+        <a href="%%GLOBAL_ShopPathNormal%%/blog/" class="Blog"><i class="fa fa-wordpress"></i></a>
+        </div><div class="End"></div>
+    </div>
+    <br/>
+    <div class="Row">
+        <div class="Cell">
+            <h3>SECURE SHOPPING</h3>
+            <div style="height: 5px;"></div>
+            <!-- SSL TrustLogo -->
+            
+{{!--
+            
+            <script language="JavaScript" type="text/javascript">
+                TrustLogo("https://www.bulkapothecary.com/content/template/img/positivessl_trust_seal_md_167x42.png", "CL1", "none");
+            </script>
+            
+--}}
+            
+            <!-- End SSL TrustLogo -->
+        </div>
+        <div class="Cell">
+                <p></p>
+        </div>
+        <div class="Cell Cards">
+            <h3>All Major<br/>Payments Accepted</h3>
+            <div class="Visa"></div><div class="Amex"></div><div class="Disc"></div><div class="Mc"></div><div class="Paypal"></div>
+        </div>
+    </div>
+</div>
+
+<div id="FooterBottom">
+    <div class="SocialHolding">
+        <div class="HeaderSocials">
+            <ul>
+                <li class="facebook"><a href="https://www.facebook.com/BApothecary" rel="nofollow" target="_blank">Facebook</a></li>
+                <li class="twitter"><a href="https://twitter.com/bulkapothecary" rel="nofollow" target="_blank">Twitter</a></li>
+                <li class="google"><a href="https://plus.google.com/103555532637918550167/about" rel="nofollow" target="_blank">Google +</a></li>
+                <li class="pinit"><a href="http://www.pinterest.com/BulkApothecary" rel="nofollow" target="_blank">Pin It</a></li>
+                <li class="instagram"><a href="http://www.instagram.com/bulkapothecary" rel="nofollow" target="_blank">Instagram</a></li>
+                <li class="tumblr"><a href="http://bulkapothecary.tumblr.com/" rel="nofollow" target="_blank">Tumblr</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="Inner">
+        <ul>
+            <li class="Title">Your Order</li>
+            <li><a href="/return-policy/">Return Policy</a></li>
+            <li><a href="/shipping-policy/">Shipping Policy</a></li>
+            <li><a href="/privacy-policy/">Privacy Policy</a></li>
+            <li><a href="/terms-conditions/">Terms &amp; Conditions</a></li>
+            <li><a href="/help/">Help</a></li>
+            <li><a href="/giftcertificates.php">Gift Certificates</a></li>
+        </ul>
+        <ul>
+            <li class="Title">Your Account</li>
+            <li><a href="/login.php" title="Sign In">Sign In</a></li>
+            <li><a href="/account.php" title="My Account">My Account</a></li>
+            <li><a href="/cart.php" title="View Cart">View Cart</a></li>
+            <li><a href="/wishlist.php" title="My Wishlist">My Wishlist</a></li>
+            <li><a href="/checkout.php" title="Checkout">Checkout</a></li>
+        </ul>
+        <ul>
+            <li class="Title">Bulk Apothecary</li>
+            <li><a href="/about-us/">About Us</a></li>
+            <li><a href="/quality/">Quality</a></li>
+            <li><a href="/best-price-guarantee/">Best Price Guarantee</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contact-us/">Contact</a></li>
+            <!-- <li><a href="/affiliate-program/">Affiliate Program</a></li> -->
+        </ul>
+        <ul>
+            <li class="Title">Resources</li>
+            <li><a href="https://www.craftandhobby.org" rel="nofollow" target="_blank">Craft &amp; Hobby Association for Soap and Candle</a></li>
+            <li><a href="http://www.soapguild.org" rel="nofollow" target="_blank">Handcrafted Soapmakers Guild For Soap Making</a></li>
+            <li><a href="http://www.fda.gov/Cosmetics/default.htm" rel="nofollow" target="_blank">FDA Cosmetics</a></li>
+            <li><a href="http://www.candles.org/" rel="nofollow" target="_blank">National Candle Association</a></li>
+            <li><a href="http://www.cir-safety.org/" rel="nofollow" target="_blank">Personal Care Products Council</a></li>
+            <li><a href="http://www.sba.gov/" rel="nofollow" target="_blank">Usa Small Business Administration</a></li>
+            <li><a href="%%GLOBAL_ShopPathNormal%%/blog/" rel="nofollow" target="_blank">News &amp; Ideas</a></li>
+        </ul>
+    </div>
+    <div class="Copyright">
+        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a> Copyright {{moment format="YYYY"}} {{settings.store_name}}
+    </div>
+</div>
+
+<a href="#" id="scroll" style="display: none;" title="Scroll to top" aria-hidden="true"><span>Scroll To Top</span></a>
+
+{{!--
+
 <footer class="footer" role="contentinfo">
-    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
     <div class="container">
         {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
             <article class="footer-info-col
                 footer-info-col--social
                 footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
                 data-section-type="footer-webPages">
-                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
+                    <h5 class="footer-info-heading">{{lang 'social.connect'}}</h5>
                     {{> components/common/social-links}}
             </article>
         {{/if}}
         <section class="footer-info">
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
+                <h5 class="footer-info-heading">{{lang 'footer.navigate'}}</h5>
                 <ul class="footer-info-list">
                     {{#each pages}}
                         <li>
@@ -46,7 +145,7 @@
             </article>
 
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
+                <h5 class="footer-info-heading">{{lang 'footer.categories'}}</h5>
                 <ul class="footer-info-list">
                     {{#each categories}}
                         <li>
@@ -58,7 +157,7 @@
 
             {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
             <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
-                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
+                <h5 class="footer-info-heading">{{lang 'footer.brands'}}</h5>
                 <ul class="footer-info-list">
                     {{#each shop_by_brand}}
                         <li>
@@ -72,7 +171,7 @@
 
             {{#if settings.address}}
             <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
-                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
+                <h5 class="footer-info-heading">{{lang 'footer.info'}}</h5>
                 <address>{{nl2br settings.address}}</address>
                 {{#if settings.phone_number}}
                     <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
@@ -104,3 +203,13 @@
         {{/if}}
     </div>
 </footer>
+
+--}}
+
+<a href="https://redheadlabs.com/" target="_blank" title="crafted with love" class="redhead">
+    <span class="icon icon--custom icon--redhead">
+        <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+               <path d="M956.29 804.482l-316.29-527.024v-213.458h32c17.6 0 32-14.4 32-32s-14.4-32-32-32h-320c-17.6 0-32 14.4-32 32s14.4 32 32 32h32v213.458l-316.288 527.024c-72.442 120.734-16.512 219.518 124.288 219.518h640c140.8 0 196.73-98.784 124.29-219.518zM241.038 640l206.962-344.938v-231.062h128v231.062l206.964 344.938h-541.926z"></path>
+        </svg>
+    </span> 
+</a>

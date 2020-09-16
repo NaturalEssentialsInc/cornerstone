@@ -4,7 +4,7 @@ import nod from './common/nod';
 import Wishlist from './wishlist';
 import validation from './common/form-validation';
 import stateCountry from './common/state-country';
-import { classifyForm, Validators, insertStateHiddenField } from './common/utils/form-utils';
+import { classifyForm, Validators, insertStateHiddenField } from './common/form-utils';
 import { creditCardType, storeInstrument, Validators as CCValidators, Formatters as CCFormatters } from './common/payment-method';
 import swal from './global/sweet-alert';
 
@@ -121,9 +121,9 @@ export default class Account extends PageManager {
 
             if (!submitForm) {
                 event.preventDefault();
-                swal.fire({
+                swal({
                     text: this.context.selectItem,
-                    icon: 'error',
+                    type: 'error',
                 });
             }
         });
@@ -198,9 +198,9 @@ export default class Account extends PageManager {
                 return true;
             }
 
-            swal.fire({
+            swal({
                 text: errorMessage,
-                icon: 'error',
+                type: 'error',
             });
 
             return event.preventDefault();
@@ -255,7 +255,7 @@ export default class Account extends PageManager {
         $(`${paymentMethodSelector} input[name="credit_card_number"]`).on('keyup', ({ target }) => {
             cardType = creditCardType(target.value);
             if (cardType) {
-                $(`${paymentMethodSelector} img[alt="${cardType}"]`).siblings().css('opacity', '.2');
+                $(`${paymentMethodSelector} img[alt="${cardType}"`).siblings().css('opacity', '.2');
             } else {
                 $(`${paymentMethodSelector} img`).css('opacity', '1');
             }
@@ -269,7 +269,7 @@ export default class Account extends PageManager {
 
         // Set of credit card format
         CCFormatters.setCreditCardNumberFormat(`${paymentMethodSelector} input[name="credit_card_number"]`);
-        CCFormatters.setExpirationFormat(`${paymentMethodSelector} input[name="expiration"]`);
+        CCFormatters.setExpirationFormat(`${paymentMethodSelector} input[name="expiration"`);
 
         // Billing address validation
         paymentMethodValidator.add(validationModel);
@@ -299,9 +299,9 @@ export default class Account extends PageManager {
                 storeInstrument(this.context, data, () => {
                     window.location.href = this.context.paymentMethodsUrl;
                 }, () => {
-                    swal.fire({
+                    swal({
                         text: this.context.generic_error,
-                        icon: 'error',
+                        type: 'error',
                     });
                 });
             }
